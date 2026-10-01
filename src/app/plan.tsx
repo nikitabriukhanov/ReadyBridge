@@ -1,36 +1,36 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { router } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
+import { useEffect, useRef, useState } from "react";
 import {
-    Animated,
-    Keyboard,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-} from 'react-native';
+  Animated,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function PlanScreen() {
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [contactName, setContactName] = useState('');
-  const [contactPhone, setContactPhone] = useState('');
-  const [instructions, setInstructions] = useState('');
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [contactName, setContactName] = useState("");
+  const [contactPhone, setContactPhone] = useState("");
+  const [instructions, setInstructions] = useState("");
   const [saved, setSaved] = useState(false);
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     const loadData = async () => {
-      const savedName = await AsyncStorage.getItem('name');
-      const savedPhone = await AsyncStorage.getItem('phone');
-      const savedContactName = await AsyncStorage.getItem('contactName');
-      const savedContactPhone = await AsyncStorage.getItem('contactPhone');
-      const savedInstructions = await AsyncStorage.getItem('instructions');
+      const savedName = await AsyncStorage.getItem("name");
+      const savedPhone = await AsyncStorage.getItem("phone");
+      const savedContactName = await AsyncStorage.getItem("contactName");
+      const savedContactPhone = await AsyncStorage.getItem("contactPhone");
+      const savedInstructions = await AsyncStorage.getItem("instructions");
 
       if (savedName !== null) {
         setName(savedName);
@@ -57,11 +57,11 @@ export default function PlanScreen() {
   }, []);
 
   const saveData = async () => {
-    await AsyncStorage.setItem('name', name);
-    await AsyncStorage.setItem('phone', phone);
-    await AsyncStorage.setItem('contactName', contactName);
-    await AsyncStorage.setItem('contactPhone', contactPhone);
-    await AsyncStorage.setItem('instructions', instructions);
+    await AsyncStorage.setItem("name", name);
+    await AsyncStorage.setItem("phone", phone);
+    await AsyncStorage.setItem("contactName", contactName);
+    await AsyncStorage.setItem("contactPhone", contactPhone);
+    await AsyncStorage.setItem("instructions", instructions);
 
     Keyboard.dismiss();
 
@@ -90,7 +90,7 @@ export default function PlanScreen() {
     <View style={styles.container}>
       <KeyboardAvoidingView
         style={styles.keyboardView}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <View style={styles.header}>
           <Text style={styles.title}>Emergency Plan</Text>
@@ -148,10 +148,7 @@ export default function PlanScreen() {
             textAlignVertical="top"
           />
 
-          <TouchableOpacity
-            style={styles.saveButton}
-            onPress={saveData}
-          >
+          <TouchableOpacity style={styles.saveButton} onPress={saveData}>
             <Text style={styles.saveButtonText}>Save</Text>
           </TouchableOpacity>
 
@@ -170,10 +167,7 @@ export default function PlanScreen() {
         </ScrollView>
       </KeyboardAvoidingView>
 
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={() => router.back()}
-      >
+      <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
         <Text style={styles.back}>← Back</Text>
       </TouchableOpacity>
     </View>
@@ -183,7 +177,7 @@ export default function PlanScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F7F8FA',
+    backgroundColor: "#F7F8FA",
   },
 
   keyboardView: {
@@ -198,14 +192,14 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 32,
-    fontWeight: '700',
-    textAlign: 'center',
+    fontWeight: "700",
+    textAlign: "center",
   },
 
   subtitle: {
     fontSize: 17,
     lineHeight: 24,
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 12,
   },
 
@@ -219,8 +213,8 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    width: '100%',
-    backgroundColor: 'white',
+    width: "100%",
+    backgroundColor: "white",
     padding: 16,
     borderRadius: 12,
     marginTop: 16,
@@ -232,29 +226,29 @@ const styles = StyleSheet.create({
   },
 
   saveButton: {
-    width: '100%',
-    backgroundColor: '#111827',
+    width: "100%",
+    backgroundColor: "#111827",
     padding: 16,
     borderRadius: 12,
     marginTop: 16,
   },
 
   saveButtonText: {
-    color: 'white',
-    textAlign: 'center',
+    color: "white",
+    textAlign: "center",
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
   },
 
   savedText: {
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 12,
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: "600",
   },
 
   backButton: {
-    position: 'absolute',
+    position: "absolute",
     left: 24,
     bottom: 40,
   },

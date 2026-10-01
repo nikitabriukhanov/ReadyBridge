@@ -9,6 +9,31 @@
     "source.sortMembers": "explicit"
   },
 
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 16,
+  "editor.lineHeight": 24,
+  "editor.wordWrap": "on",
+  "editor.stickyScroll.enabled": true,
+  "editor.smoothScrolling": true,
+  "editor.mouseWheelZoom": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.cursorBlinking": true,
+
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
+  "workbench.sideBar.location": "left",
+  "workbench.statusBar.visible": true,
+
+  "breadcrumbs.enabled": true,
+
+  "gitlens.currentLine.enabled": true,
+  "git.autofetch": true,
+
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
